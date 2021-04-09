@@ -1,0 +1,27 @@
+pipeline {
+  agent {
+    dockerfile true
+  }
+
+  options {
+    disableConcurrentBuilds()
+    parallelsAlwaysFailFast()
+    timestamps()
+  }
+
+  parameters {
+
+  }
+
+  stages {
+    stage('Acknowledge') {
+      steps {
+        echo 'PROD pipeline triggered!'
+      }
+    }
+  }
+
+  post {
+    cleanWs()
+  }
+}
