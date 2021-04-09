@@ -57,7 +57,7 @@ pipeline {
       }
 
       steps {
-        build job: '/declarative-jenkins-PROD', wait: false
+        build job: '/declarative-jenkins-PROD', parameters: [string(name: 'AWS_REGION', value: env.AWS_REGION)], wait: false
       }
     }
   }
