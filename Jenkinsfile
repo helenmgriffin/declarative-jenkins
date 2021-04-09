@@ -7,6 +7,8 @@ pipeline {
 
   environment {
     HELLO_WORLD = "Hello world!"
+    AWS_REGION = 'eu-west-1'
+    HOME = '.'
   }
 
   options {
@@ -27,10 +29,14 @@ pipeline {
 
         stage('Say Hello World') {
           steps {
-            echo "${env.HELLO_WORLD_ENV_VAR}"
+            echo "${env.HELLO_WORLD}"
           }
         }
-      }
+        stage('Echo AWS Region') {
+          steps {
+            echo "${env.AWS_REGION}"
+          }
+        }
     }
 
     stage('Deploy') {
