@@ -37,6 +37,7 @@ pipeline {
             echo "${env.AWS_REGION}"
           }
         }
+      }
     }
 
     stage('Deploy') {
